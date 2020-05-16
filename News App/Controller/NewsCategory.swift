@@ -1,16 +1,36 @@
 //
-//  ViewController.swift
+//  NewsCategory.swift
 //  News App
 //
-//  Created by Himanshu Joshi on 13/05/20.
+//  Created by Himanshu Joshi on 16/05/20.
 //  Copyright © 2020 Himanshu Joshi. All rights reserved.
 //
 
 import UIKit
-import SwiftyJSON
 import Alamofire
+import SwiftyJSON
 
-class ViewController: UIViewController {
+class NewsCategory: UIViewController {
+    
+    var api = "default"
+    var category = "default"
+    var jsonArray = [JSON]()
+    var titleArray = [String]()
+    var descArray = [String]()
+    var dateArray = [String]()
+    var imageArray = [String]()
+    var webArray = [String]()
+    
+    let backButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: "back.png"), for: .normal)
+        button.tintColor = .black
+        return button
+    }()
+    
+    @objc func back(_ sender : UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     let lineView: UIView = {
         let view = UIView()
@@ -20,7 +40,7 @@ class ViewController: UIViewController {
     
     let profileLabel: UILabel = {
         let label = UILabel()
-        label.text = "TOP NEWS"
+        label.text = ""
         label.font = UIFont(name: "Avenir", size: 16.0)
         label.textColor = .lightGray
         return label
@@ -41,18 +61,18 @@ class ViewController: UIViewController {
         tableView.estimatedRowHeight = 44.0
         return tableView
     }()
-    
-    var jsonArray = [JSON]()
-    let url = "http://newsapi.org/v2/top-headlines?country=in&sortBy=publishedAt&apiKey=3006b0a901d24919ab86700b4666c940"
-    
-    var titleArray = [String]()
-    var descArray = [String]()
-    var dateArray = [String]()
-    var imageArray = [String]()
-    var webArray = [String]()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.addSubview(backButton)
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.isUserInteractionEnabled = true
+        backButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 20.0).isActive = true
+        backButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20.0).isActive = true
+        backButton.widthAnchor.constraint(equalToConstant: 30.0).isActive = true
+        backButton.heightAnchor.constraint(equalToConstant: 30.0).isActive = true
+        backButton.addTarget(self, action: #selector(back(_:)), for: .allEvents)
         
         self.view.addSubview(lineView)
         lineView.translatesAutoresizingMaskIntoConstraints = false
@@ -64,6 +84,7 @@ class ViewController: UIViewController {
         profileLabel.translatesAutoresizingMaskIntoConstraints = false
         profileLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 20.0).isActive = true
         profileLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0.0).isActive = true
+        profileLabel.text = category
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -74,8 +95,8 @@ class ViewController: UIViewController {
         spinner.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         
         spinner.startAnimating()
-
-        getData(url: url)
+    
+        getData(url: api)
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -114,7 +135,7 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension NewsCategory: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell") as? NewsCell else { return UITableViewCell() }
@@ -146,4 +167,4 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-}  
+}

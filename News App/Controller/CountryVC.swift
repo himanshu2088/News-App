@@ -1,16 +1,16 @@
 //
-//  ViewController.swift
+//  CountryVC.swift
 //  News App
 //
-//  Created by Himanshu Joshi on 13/05/20.
+//  Created by Himanshu Joshi on 16/05/20.
 //  Copyright © 2020 Himanshu Joshi. All rights reserved.
 //
 
 import UIKit
-import SwiftyJSON
 import Alamofire
+import SwiftyJSON
 
-class ViewController: UIViewController {
+class CountryVC: UIViewController {
     
     let lineView: UIView = {
         let view = UIView()
@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     let profileLabel: UILabel = {
         let label = UILabel()
-        label.text = "TOP NEWS"
+        label.text = "WORLD TOP NEWS"
         label.font = UIFont(name: "Avenir", size: 16.0)
         label.textColor = .lightGray
         return label
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
     }()
     
     var jsonArray = [JSON]()
-    let url = "http://newsapi.org/v2/top-headlines?country=in&sortBy=publishedAt&apiKey=3006b0a901d24919ab86700b4666c940"
+    let url = "http://newsapi.org/v2/top-headlines?sources=bbc-news&sortBy=publishedAt&apiKey=3006b0a901d24919ab86700b4666c940"
     
     var titleArray = [String]()
     var descArray = [String]()
@@ -114,7 +114,7 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension CountryVC: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell") as? NewsCell else { return UITableViewCell() }
@@ -146,4 +146,5 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-}  
+}
+
