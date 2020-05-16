@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--News of Nation-->
+        <!--Top News-->
         <scene sceneID="KBj-KL-euO">
             <objects>
                 <viewController id="KPe-Zc-EFR" customClass="ViewController" customModule="News_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,13 +17,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="sZq-ca-Qse"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="News of Nation" id="Ncb-EG-uXK"/>
+                    <tabBarItem key="tabBarItem" title="Top News" id="Ncb-EG-uXK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ixQ-WU-aNK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2028" y="-309.89505247376314"/>
         </scene>
-        <!--International News-->
+        <!--World Top News-->
         <scene sceneID="zgA-5v-nZ0">
             <objects>
                 <viewController id="6Il-V8-5nv" customClass="CountryVC" customModule="News_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,13 +33,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="gca-FW-hYG"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="International News" id="P2j-YN-HbZ"/>
+                    <tabBarItem key="tabBarItem" title="World Top News" id="P2j-YN-HbZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZJ7-hX-y8O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="487" y="476"/>
         </scene>
-        <!--Category-->
+        <!--News By Category-->
         <scene sceneID="Fpv-O2-nkm">
             <objects>
                 <viewController id="aWr-Ld-44k" customClass="CategoryVC" customModule="News_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -49,7 +49,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="APP-JQ-bGl"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Category" id="rZ4-Kl-dW8"/>
+                    <tabBarItem key="tabBarItem" title="News By Category" id="rZ4-Kl-dW8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7hy-09-woF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
